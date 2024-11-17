@@ -43,6 +43,7 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown("w") && isOnSurfaces)
         {
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            animator.SetBool("isJumping", true);
             //isOnGround = false;
             isOnSurfaces = false;
         }
