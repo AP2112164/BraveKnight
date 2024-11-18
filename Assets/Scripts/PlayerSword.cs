@@ -16,13 +16,13 @@ public class PlayerSword : MonoBehaviour
         swordDur.setMaxDurability(maxDurability);
     }
 
-    void looseDurability(int damage)
+    void Update()
     {
-        currentDurability -= damage;
-        swordDur.setDurability(currentDurability);
-        ///Debug.Log("WWW");
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            looseDurability(15);
+        }
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("enemySword"))
@@ -34,5 +34,22 @@ public class PlayerSword : MonoBehaviour
         {
             looseDurability(5);
         }
+
+        //if (collision.gameObject.CompareTag("Player"))
+        //{
+        //    addDurability(20);
+        //}
+    }
+
+    //void addDurability(int addDur)
+    //{
+    //    currentDurability += addDur;
+    //    swordDur.setDurability(currentDurability);
+    //}
+    void looseDurability(int damage)
+    {
+        currentDurability -= damage;
+        swordDur.setDurability(currentDurability);
+        ///Debug.Log("WWW");
     }
 }

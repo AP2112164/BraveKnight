@@ -9,17 +9,16 @@ public class SwordBar : MonoBehaviour
     public Gradient gradient;
     public Image fill;
 
-    public void setMaxDurability(int health)
+    public void setMaxDurability(int swordDurability)
     {
-        slider.maxValue = health;
-        slider.value = health;
-
+        slider.maxValue = swordDurability;
+        slider.value = swordDurability;
         fill.color = gradient.Evaluate(1f);
     }
 
-    public void setDurability(int health)
+    public void setDurability(int swordDurability)
     {
-        slider.value = health;
+        slider.value = swordDurability;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 }

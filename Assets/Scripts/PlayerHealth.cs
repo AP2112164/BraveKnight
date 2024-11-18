@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
 
     public PlayerHealthBar playerHB;
+    private PlayerSword swordDB;
+    public SwordBar swordDBar;
 
     void Start()
     {
@@ -18,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             takeDamage(15);
         }
@@ -27,6 +29,31 @@ public class PlayerHealth : MonoBehaviour
     void takeDamage(int damage)
     {
         currentHealth -= damage;
+        playerHB.setHealth(currentHealth);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("heart"))
+        {
+            increaseHealth(20);
+        }
+
+        if (collision.gameObject.CompareTag("ore"))
+        {
+            addDurability(20);
+        }
+    }
+
+    void addDurability(int addDur)
+    {
+        swordDB.currentDurability += addDur;
+        swordDBar.setDurability(swordDB.currentDurability);
+    }
+
+    void increaseHealth(int addHealth)
+    {
+        currentHealth += addHealth;
         playerHB.setHealth(currentHealth);
     }
 }

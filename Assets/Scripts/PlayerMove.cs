@@ -56,6 +56,15 @@ public class PlayerMove : MonoBehaviour
         {
             animator.SetBool("isAttacking", false);
         }
+
+        if (Input.GetKeyDown("l"))
+        {
+            animator.SetBool("isBlockingBlow", true);
+        }
+        else
+        {
+            animator.SetBool("isBlockingBlow", false);
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {

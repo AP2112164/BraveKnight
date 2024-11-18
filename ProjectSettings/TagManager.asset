@@ -9,6 +9,9 @@ TagManager:
   - playerSword
   - enemySword
   - Enemy
+  - wall
+  - heart
+  - ore
   layers:
   - Default
   - TransparentFX

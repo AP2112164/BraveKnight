@@ -13,7 +13,6 @@ public class PlayerHealthBar : MonoBehaviour
     {
         slider.maxValue = health;
         slider.value = health;
-
         fill.color = gradient.Evaluate(1f);
     }
 
